@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up - Ruby Bank</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="stars-bg">
+  <div class="login-box">
+    <h2>📝 Create New Account</h2>
+
+    <% if @error %><p class="error"><%= @error %></p><% end %>
+
+    <form action="/signup" method="post">
+      <input type="text" name="username" placeholder="Username" required>
+
+      <div class="password-container">
+        <input type="password" name="password" id="signupPassword" placeholder="Password" required>
+      </div>
+      <button type="button" class="eye-outside" onclick="togglePassword('signupPassword', this)">👁️</button>
+
+      <input type="number" name="balance" placeholder="Initial Deposit" required>
+      <input type="submit" value="Create Account">
+    </form>
+
+    <a href="/" class="btn">Back to Login</a>
+  </div>
+
+  <script>
+    function togglePassword(id, el) {
+      const input = document.getElementById(id);
+      if (input.type === "password") {
+        input.type = "text";
+        el.textContent = "🙈";
+      } else {
+        input.type = "password";
+        el.textContent = "👁️";
+      }
+    }
+  </script>
+</body>
+</html>

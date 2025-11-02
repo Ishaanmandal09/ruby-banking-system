@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: black;
+  overflow-x: hidden;
+}
+
+/* 🌠 Star Animation */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(white, transparent 2px),
+              radial-gradient(white, transparent 2px),
+              radial-gradient(white, transparent 2px);
+  background-size: 100px 100px;
+  animation: twinkle 4s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.3; }
+}
+
+/* Main Containers */
+.container, .dashboard-container {
+  background: rgba(0, 0, 60, 0.75);
+  padding: 30px;
+  border-radius: 20px;
+  width: 350px;
+  margin: 80px auto;
+  text-align: center;
+  box-shadow: 0 0 20px cyan;
+}
+
+h1, h2, h3 {
+  color: #00ffff;
+}
+
+/* Inputs */
+input, select, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+}
+
+button {
+  background: cyan;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: deepskyblue;
+}
+
+/* Password eye */
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  right: -25px;
+  top: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Messages */
+.error { color: #ff7b7b; }
+.success { color: #7fff7f; }
+.info { color: #7fbfff; }
+.warning { color: #ffbf7f; }
+/* Dashboard */
+.dashboard-container {
+  width: 400px;
+}
+.transaction-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 20px;
+  text-align: left;
+}
+.transaction-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.transaction-item.deposit { border-left: 5px solid #7fff7f; }
+.transaction-item.withdrawal { border-left: 5px solid #ff7b7b; }
+.transaction-item.transfer { border-left: 5px solid #7fbfff; }
+.transaction-item p {
+  margin: 5px 0;
+}
+/* Forms */
+form {
+  margin-top: 20px;
+}
+form h3 {
+  margin-bottom: 10px;
+}
+form input, form select, form button {
+  margin-bottom: 15px;
+}
+form button {
+  width: auto;
+  padding: 10px 20px;
+}
+.create-btn {
+  background: #00ffcc;
+  color: black;
+}
+.create-btn:hover {
+  background: #00e6b8;
+}
+/* Responsive */
+@media (max-width: 500px) {
+  .container, .dashboard-container {
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+  }
+}
+/* End of style.css */

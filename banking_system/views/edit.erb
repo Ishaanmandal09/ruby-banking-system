@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile - Ruby Bank</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="user-bg">
+  <div class="user-container">
+    <h2>✏️ Edit Profile for <%= @user.name %></h2>
+
+    <form action="/update" method="post">
+      <input type="hidden" name="username" value="<%= @user.name %>">
+
+      <input type="text" name="new_name" placeholder="New name (optional)">
+      <div class="password-container">
+        <input type="password" name="new_password" placeholder="New password (optional)" id="editPassword">
+        <span class="eye-icon" onclick="togglePassword('editPassword', this)">👁️</span>
+      </div>
+      <input type="submit" value="Save Changes">
+    </form>
+
+    <a href="/" class="btn">Back to Home</a>
+  </div>
+
+  <script>
+    function togglePassword(id, el) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>

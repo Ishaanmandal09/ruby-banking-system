@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="dashboard">
+  <div class="stars"></div>
+  <div class="dashboard-container">
+    <h2>👋 Welcome, <%= @username %>!</h2>
+    <p>Your balance: <strong>$<%= @balance %></strong></p>
+
+    <h3>Make Transaction</h3>
+    <form action="/transaction" method="post">
+      <input type="hidden" name="username" value="<%= @username %>">
+      <select name="type">
+        <option>Deposit</option>
+        <option>Withdraw</option>
+      </select>
+      <input type="number" name="amount" step="0.01" placeholder="Amount" required>
+      <button type="submit">Submit</button>
+    </form>
+
+    <h3>Transaction History</h3>
+    <ul>
+      <% @history.each do |t| %>
+        <li><%= t %></li>
+      <% end %>
+    </ul>
+
+    <h3>Update Account Info</h3>
+    <form action="/update" method="post">
+      <input type="hidden" name="username" value="<%= @username %>">
+      <input type="text" name="new_name" placeholder="New Username (optional)">
+      <input type="password" name="new_password" placeholder="New Password (optional)">
+      <button type="submit">Update</button>
+    </form>
+
+    <% if @success %><p class="success"><%= @success %></p><% end %>
+  </div>
+</body>
+</html>

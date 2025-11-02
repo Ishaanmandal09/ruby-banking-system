@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="dashboard">
+  <div class="stars"></div>
+  <div class="dashboard-container">
+    <h2>🛠️ Admin Panel</h2>
+
+    <h3>All User Balances</h3>
+    <ul>
+      <% @balances.each do |name, bal| %>
+        <li><strong><%= name %>:</strong> $<%= bal %></li>
+      <% end %>
+    </ul>
+
+    <h3>Transaction Records</h3>
+    <% @transactions.each do |user, records| %>
+      <p><strong><%= user %>:</strong></p>
+      <ul>
+        <% records.each do |t| %><li><%= t %></li><% end %>
+      </ul>
+    <% end %>
+  </div>
+</body>
+</html>

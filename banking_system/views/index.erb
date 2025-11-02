@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ruby Bank</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="container">
+    <h1>🌟 Welcome to Ruby Bank 🌟</h1>
+
+    <% if @error %><p class="error"><%= @error %></p><% end %>
+    <% if @success %><p class="success"><%= @success %></p><% end %>
+
+    <form action="/login" method="post">
+      <label>Role:</label>
+      <select name="role">
+        <option>User</option>
+        <option>Admin</option>
+      </select>
+
+      <input type="text" name="username" placeholder="Username" required>
+
+      <div class="password-container">
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <form action="/signup" method="post">
+      <h3>Create Account</h3>
+      <input type="text" name="new_username" placeholder="New Username" required>
+      <input type="password" name="new_password" placeholder="New Password" required>
+      <button type="submit" class="create-btn">Create</button>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
